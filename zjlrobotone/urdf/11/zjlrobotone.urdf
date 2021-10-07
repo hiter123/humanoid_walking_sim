@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="zjlrobotone">
+  <link name="base"/>
+  <joint name="trunk_link-base_fixed_joint" type="fixed">
+    <!--origin rpy="0 0 0" xyz="0 0 0.8189"/-->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="trunk_link"/>
+  </joint>
+  <link
+    name="trunk_link">
+    <inertial>
+      <origin
+        xyz="-0.000914450757348744 0.000746421374304825 0.914951910973889"
+        rpy="0 0 0" />
+      <mass
+        value="7.52904861171899" />
+      <inertia
+        ixx="0.0666305484329888"
+        ixy="-1.0204528353095E-05"
+        ixz="0.000757132239389187"
+        iyy="0.0394602930734245"
+        iyz="-2.43992241352087E-05"
+        izz="0.0622663096051638" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/trunk_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/trunk_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot name="zjlrobotone">
+  
+  <planar_surface name="Left_foot_plane1" link="left_foot_Link">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0" />
+    <points>
+      <point xy="-0.0625 0.0925000011920929" />
+        <point xy="-0.09799998998641968 0.0925000011920929" />
+        <point xy="-0.09799998998641968 -0.06949999928474426" />
+        <point xy="0.19699999690055847 -0.06949999928474426" />
+        <point xy="0.19699999690055847 0.0925000011920929" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+    
+  <planar_surface name="Left_foot_plane2" link="left_foot_Link">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0" />
+    <points>
+      <point xy="-0.09799998998641968 -0.06949999928474426" />
+        <point xy="0.19699999690055847 -0.06949999928474426" />
+        <point xy="0.19699999690055847 0.0925000011920929" />
+        <point xy="-0.09799998998641968 0.0925000011920929" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+</robot>

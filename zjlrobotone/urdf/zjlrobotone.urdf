@@ -1,0 +1,1559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="zjlrobotone">
+  <!-- Joints and links -->
+  <link name="base"/>
+  <joint name="trunk_link-base_fixed_joint" type="fixed">
+    <!--origin rpy="0 0 0" xyz="0 0 0.8189"/-->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="trunk_link"/>
+  </joint>
+  <link
+    name="trunk_link">
+    <inertial>
+      <origin
+        xyz="-0.000914450757348744 0.000746421374304825 0.914951910973889"
+        rpy="0 0 0" />
+      <mass
+        value="7.52904861171899" />
+      <inertia
+        ixx="0.0666305484329888"
+        ixy="-1.0204528353095E-05"
+        ixz="0.000757132239389187"
+        iyy="0.0394602930734245"
+        iyz="-2.43992241352087E-05"
+        izz="0.0622663096051638" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/trunk_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/trunk_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="neck_Link">
+    <inertial>
+      <origin
+        xyz="0.000399637918491747 -0.000628342504643824 0.0321779518256375"
+        rpy="0 0 0" />
+      <mass
+        value="0.261909651464687" />
+      <inertia
+        ixx="0.000121396705664351"
+        ixy="5.460169452591E-12"
+        ixz="-3.45895617977189E-06"
+        iyy="0.000102480196365687"
+        iyz="4.98872979477803E-07"
+        izz="7.410282035377E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/neck_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/neck_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="neck_yaw"
+    type="revolute">
+    <origin
+      xyz="0 0 1.111500041206"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="neck_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="head_Link">
+    <inertial>
+      <origin
+        xyz="0.0388706602212827 -1.680084105272E-05 0.10710542579968"
+        rpy="0 0 0" />
+      <mass
+        value="1.27344162747288" />
+      <inertia
+        ixx="0.00597035907598076"
+        ixy="9.79000656877944E-07"
+        ixz="0.000511898861205566"
+        iyy="0.00376195675607552"
+        iyz="-3.66138910866151E-06"
+        izz="0.00658008589012989" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/head_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/head_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="head_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0 0.04975"
+      rpy="0 0 0" />
+    <parent
+      link="neck_Link" />
+    <child
+      link="head_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_shoulder_pitch_Link">
+    <inertial>
+      <origin
+        xyz="-0.000117554601470666 -0.076800679836646 -0.00165994534359676"
+        rpy="0 0 0" />
+      <mass
+        value="0.314079646947585" />
+      <inertia
+        ixx="0.000653074584763474"
+        ixy="-9.53046961165069E-08"
+        ixz="-5.1688005431628E-08"
+        iyy="0.000881633812399181"
+        iyz="-8.84307513571355E-05"
+        izz="0.00105209606136951" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_shoulder_pitch_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_shoulder_pitch_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shoulder_pitch"
+    type="revolute">
+    <origin
+      xyz="0.00106573234120347 -0.14454469837454 1.0373"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="right_shoulder_pitch_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_upper_arm_Link">
+    <inertial>
+      <origin
+        xyz="0.00303588692865786 -0.00231543510438542 -0.0958752653376666"
+        rpy="0 0 0" />
+      <mass
+        value="0.635877588901592" />
+      <inertia
+        ixx="0.00287779069208217"
+        ixy="-4.18611659613152E-07"
+        ixz="0.000107894243746297"
+        iyy="0.0027035617470645"
+        iyz="0.000112664835718688"
+        izz="0.000476711606016894" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_upper_arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_upper_arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shoulder_roll"
+    type="revolute">
+    <origin
+      xyz="0 -0.0927799999999999 -0.0123"
+      rpy="0 0 0" />
+    <parent
+      link="right_shoulder_pitch_Link" />
+    <child
+      link="right_upper_arm_Link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_lower_arm_Link">
+    <inertial>
+      <origin
+        xyz="0.00538870678198584 -0.00111238107216985 -0.0772415461756999"
+        rpy="0 0 0" />
+      <mass
+        value="0.587830039636809" />
+      <inertia
+        ixx="0.00138915468045659"
+        ixy="-9.3321640779812E-06"
+        ixz="-4.09572705755998E-05"
+        iyy="0.00152611035581113"
+        iyz="-0.000109617933614794"
+        izz="0.000445111625002298" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_lower_arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_lower_arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_elbow_pitch"
+    type="revolute">
+    <origin
+      xyz="0.0399999999999999 0 -0.249999999999999"
+      rpy="0 0 0" />
+    <parent
+      link="right_upper_arm_Link" />
+    <child
+      link="right_lower_arm_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="left_shoulder_pitch_Link">
+    <inertial>
+      <origin
+        xyz="0.000117575341229363 0.0768006683610033 -0.00165993915191015"
+        rpy="0 0 0" />
+      <mass
+        value="0.314079560668122" />
+      <inertia
+        ixx="0.000653074481699797"
+        ixy="-9.55062916713564E-08"
+        ixz="5.19576643513754E-08"
+        iyy="0.000881633178187226"
+        iyz="8.84307157082433E-05"
+        izz="0.00105209554881933" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_shoulder_pitch_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_shoulder_pitch_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shoulder_pitch"
+    type="revolute">
+    <origin
+      xyz="0.00106573234120405 0.14454469837456 1.0373"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="left_shoulder_pitch_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+    <sensor name="force_torque" type="force_torque">
+      <update_rate>30</update_rate>
+    </sensor>
+  </joint>
+  <link
+    name="left_upper_arm_Link">
+    <inertial>
+      <origin
+        xyz="0.00284806682467378 0.00207548938454302 -0.092627016824666"
+        rpy="0 0 0" />
+      <mass
+        value="0.594737763802597" />
+      <inertia
+        ixx="0.00252021523090866"
+        ixy="4.53566048612947E-07"
+        ixz="9.68985437445098E-05"
+        iyy="0.00237917618847347"
+        iyz="-9.46955255343155E-05"
+        izz="0.000415234831814517" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_upper_arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_upper_arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shoulder_roll"
+    type="revolute">
+    <origin
+      xyz="0 0.09278 -0.0123"
+      rpy="0 0 0" />
+    <parent
+      link="left_shoulder_pitch_Link" />
+    <child
+      link="left_upper_arm_Link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="left_lower_arm_Link">
+    <inertial>
+      <origin
+        xyz="0.00570143028188708 0.00109861725622021 -0.0748707744922804"
+        rpy="0 0 0" />
+      <mass
+        value="0.565622425308031" />
+      <inertia
+        ixx="0.00130219869014634"
+        ixy="8.6913757582877E-06"
+        ixz="-3.85811575084768E-05"
+        iyy="0.00143212058880135"
+        iyz="0.000102462423548298"
+        izz="0.000423140321628434" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_lower_arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/left_lower_arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_elbow_pitch"
+    type="revolute">
+    <origin
+      xyz="0.0399999999999999 0 -0.25"
+      rpy="0 0 0" />
+    <parent
+      link="left_upper_arm_Link" />
+    <child
+      link="left_lower_arm_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_hip_yaw_Link">
+    <inertial>
+      <origin
+        xyz="-0.00180542083044109 -3.23543340918775E-06 -0.0651566603440417"
+        rpy="0 0 0" />
+      <mass
+        value="0.659354519164012" />
+      <inertia
+        ixx="0.000407361803865825"
+        ixy="4.86343521936953E-08"
+        ixz="9.54652039100096E-15"
+        iyy="0.000648602193750625"
+        iyz="9.21589387786542E-07"
+        izz="0.000701071631463462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_hip_yaw_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_hip_yaw_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_yaw"
+    type="revolute">
+    <origin
+      xyz="0.00106573234120409 -0.08999999999999 0.8015"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="right_hip_yaw_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_hip_roll_Link">
+    <inertial>
+      <origin
+        xyz="-0.00402790305119725 0.000253406147921034 4.74632676361608E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.4498599629689" />
+      <inertia
+        ixx="0.000537655307973921"
+        ixy="1.06093839429833E-13"
+        ixz="5.29299031605909E-13"
+        iyy="0.0001748510313321"
+        iyz="6.77086815741302E-08"
+        izz="0.000528037707680087" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_hip_roll_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_hip_roll_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.00100000000000005 0 -0.1565"
+      rpy="0 0 0" />
+    <parent
+      link="right_hip_yaw_Link" />
+    <child
+      link="right_hip_roll_Link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_thigh_Link">
+    <inertial>
+      <origin
+        xyz="-2.47003057792764E-06 -0.0110258372664085 -0.127005932302343"
+        rpy="0 0 0" />
+      <mass
+        value="0.863671804236828" />
+      <inertia
+        ixx="0.00142415985180804"
+        ixy="-5.96244355777299E-08"
+        ixz="-5.45099717717677E-07"
+        iyy="0.00101272015680401"
+        iyz="5.61076371540611E-07"
+        izz="0.000751346115904397" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_hip_roll_Link" />
+    <child
+      link="right_thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_shank_Link">
+    <inertial>
+      <origin
+        xyz="-0.00610225690505806 0.00203256334866765 -0.0965677867700049"
+        rpy="0 0 0" />
+      <mass
+        value="1.20316813873413" />
+      <inertia
+        ixx="0.000867608138836583"
+        ixy="-4.86969865668049E-08"
+        ixz="-6.80400789284231E-07"
+        iyy="0.000597528262112518"
+        iyz="-9.01751669134556E-08"
+        izz="0.000880639741370915" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_shank_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_shank_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_knee_pitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.0119999999999984 -0.3"
+      rpy="0 0 0" />
+    <parent
+      link="right_thigh_Link" />
+    <child
+      link="right_shank_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_ankle_Link">
+    <inertial>
+      <origin
+        xyz="-4.28738703723425E-08 4.2873870287341E-08 -4.33065261429277E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0671628268156403" />
+      <inertia
+        ixx="1.14287124605302E-05"
+        ixy="-1.23510111810938E-16"
+        ixz="1.24864536638696E-17"
+        iyy="1.14287124605304E-05"
+        iyz="-1.24639065812824E-17"
+        izz="1.88762683458017E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_ankle_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_ankle_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_ankle_roll"
+    type="revolute">
+    <origin
+      xyz="0.000271017802116743 0 -0.3"
+      rpy="0 0 0" />
+    <parent
+      link="right_shank_Link" />
+    <child
+      link="right_ankle_Link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_foot_Link">
+    <inertial>
+      <origin
+        xyz="0.0221949551330184 -0.00747247835051637 -0.0388140987520367"
+        rpy="0 0 0" />
+      <mass
+        value="0.930133184005028" />
+      <inertia
+        ixx="0.00161951534855779"
+        ixy="-1.52608590855939E-12"
+        ixz="-3.01649562491367E-06"
+        iyy="0.00550055156549085"
+        iyz="4.32152403884859E-16"
+        izz="0.00709214201931003" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://zjlrobotone/meshes/right_foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="right_ankle_pitch"
+          type="revolute">
+    <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+    <parent
+            link="right_ankle_Link" />
+    <child
+            link="right_foot_Link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_hip_yaw_Link">
+    <inertial>
+      <origin
+              xyz="-0.00180542081936131 -3.23543056518494E-06 -0.0651566603358004"
+              rpy="0 0 0" />
+      <mass
+              value="0.659354519312748" />
+      <inertia
+              ixx="0.000407361803909441"
+              ixy="4.86343619123616E-08"
+              ixz="1.71998180548052E-14"
+              iyy="0.000648602193773364"
+              iyz="9.21589366937119E-07"
+              izz="0.00070107163149285" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_hip_yaw_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_hip_yaw_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_hip_yaw"
+          type="revolute">
+    <origin
+            xyz="0.00106573234120401 0.09000000000001 0.8015"
+            rpy="0 0 0" />
+    <parent
+            link="trunk_link" />
+    <child
+            link="left_hip_yaw_Link" />
+    <axis
+            xyz="0 0 -1" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_hip_roll_Link">
+    <inertial>
+      <origin
+              xyz="-0.00402234130300469 -0.000340600338428365 -2.60358178113818E-05"
+              rpy="0 0 0" />
+      <mass
+              value="0.450481998312681" />
+      <inertia
+              ixx="0.000537658966448533"
+              ixy="1.28440261459119E-13"
+              ixz="-5.29208644299967E-13"
+              iyy="0.000174858281931683"
+              iyz="-6.77125219836977E-08"
+              izz="0.000528041366154448" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_hip_roll_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_hip_roll_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_hip_roll"
+          type="revolute">
+    <origin
+            xyz="-0.00100000000000003 0 -0.1565"
+            rpy="0 0 0" />
+    <parent
+            link="left_hip_yaw_Link" />
+    <child
+            link="left_hip_roll_Link" />
+    <axis
+            xyz="-1 0 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_thigh_Link">
+    <inertial>
+      <origin
+              xyz="-7.36056330182271E-05 0.0119425482354867 -0.129419512726355"
+              rpy="0 0 0" />
+      <mass
+              value="0.826940841937815" />
+      <inertia
+              ixx="0.00142486077337241"
+              ixy="7.57865653612802E-08"
+              ixz="-7.99628130843427E-07"
+              iyy="0.00101231405412004"
+              iyz="-5.61076140989696E-07"
+              izz="0.000749866288408142" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_thigh_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_hip_pitch"
+          type="revolute">
+    <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+    <parent
+            link="left_hip_roll_Link" />
+    <child
+            link="left_thigh_Link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_shank_Link">
+    <inertial>
+      <origin
+              xyz="-0.00609597274610765 -0.00216933192014158 -0.0968069168618255"
+              rpy="0 0 0" />
+      <mass
+              value="1.20212924681142" />
+      <inertia
+              ixx="0.000869200497076359"
+              ixy="-4.8696986814213E-08"
+              ixz="-9.9758096067874E-07"
+              iyy="0.000597511440001174"
+              iyz="-4.86363068441647E-08"
+              izz="0.00087902791916659" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_shank_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_shank_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_knee_pitch"
+          type="revolute">
+    <origin
+            xyz="0 0.013000000000026 -0.29999999999994"
+            rpy="0 0 0" />
+    <parent
+            link="left_thigh_Link" />
+    <child
+            link="left_shank_Link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_ankle_Link">
+    <inertial>
+      <origin
+              xyz="-4.28738706278889E-08 4.28738703150966E-08 -4.33065272531508E-09"
+              rpy="0 0 0" />
+      <mass
+              value="0.0671628268156411" />
+      <inertia
+              ixx="1.14287124605303E-05"
+              ixy="-1.23544410135537E-16"
+              ixz="1.24580745284108E-17"
+              iyy="1.14287124605304E-05"
+              iyz="-1.24606267137677E-17"
+              izz="1.88762683458017E-05" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_ankle_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_ankle_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_ankle_roll"
+          type="revolute">
+    <origin
+            xyz="0.000271017802122291 0 -0.300000000000035"
+            rpy="0 0 0" />
+    <parent
+            link="left_shank_Link" />
+    <child
+            link="left_ankle_Link" />
+    <axis
+            xyz="-1 0 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link
+          name="left_foot_Link">
+    <inertial>
+      <origin
+              xyz="0.022199 0.0074743 -0.038818"
+              rpy="0 0 0" />
+      <mass
+              value="0.93026" />
+      <inertia
+              ixx="0.00162"
+              ixy="-1.5272E-12"
+              ixz="-3.0165E-06"
+              iyy="0.0055027"
+              iyz="4.3083E-16"
+              izz="0.0070947" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_foot_Link.STL" />
+      </geometry>
+      <material
+              name="">
+        <color
+                rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh
+                filename="package://zjlrobotone/meshes/left_foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_ankle_pitch"
+          type="revolute">
+    <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+    <parent
+            link="left_ankle_Link" />
+    <child
+            link="left_foot_Link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-3"
+            upper="3"
+            effort="100"
+            velocity="100" />
+  </joint>
+  <link name="gsensor"/>
+  <joint name="gsensor_JOINT" type="fixed">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="trunk_link"/>
+    <child link="gsensor"/>
+  </joint>
+  <sensor name="gsensor_SENSOR" update_rate="20">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="trunk_link"/>
+  </sensor>
+  <link name="gyrometer"/>
+  <joint name="gyrometer_JOINT" type="fixed">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="trunk_link"/>
+    <child link="gyrometer"/>
+  </joint>
+  <sensor name="gyrometer_SENSOR" update_rate="20">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="trunk_link"/>
+  </sensor>
+  <link name="rfsensor"/>
+  <joint name="rfsensor_JOINT" type="fixed">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="right_foot_Link"/>
+    <child link="rfsensor"/>
+  </joint>
+  <sensor name="rfsensor_SENSOR" update_rate="20">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="right_foot_Link"/>
+  </sensor>
+  <link name="lfsensor"/>
+  <joint name="lfsensor_JOINT" type="fixed">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="left_foot_Link"/>
+    <child link="lfsensor"/>
+  </joint>
+  <sensor name="lfsensor_SENSOR" update_rate="20">
+    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <parent link="left_foot_Link"/>
+  </sensor>
+   <!-- Transmissions -->
+  <transmission name="neck_yaw_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="neck_yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="neck_yaw">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="head_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="head_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="head_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_shoulder_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_shoulder_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_shoulder_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_shoulder_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_shoulder_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_shoulder_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_elbow_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_elbow_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_elbow_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_shoulder_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_shoulder_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_shoulder_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_shoulder_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_shoulder_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_shoulder_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_elbow_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_elbow_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_elbow_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_hip_yaw_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_hip_yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_hip_yaw">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_knee_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_knee_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_knee_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_ankle_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_ankle_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_ankle_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_ankle_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_ankle_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_ankle_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_hip_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_hip_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_hip_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_hip_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_hip_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_hip_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_hip_yaw_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_hip_yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_hip_yaw">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_hip_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_hip_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_hip_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_hip_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_hip_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_hip_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_knee_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_knee_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_knee_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_ankle_roll_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_ankle_roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_ankle_roll">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="left_ankle_pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_ankle_pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_ankle_pitch">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+
+
+ <!-- Gazebo links -->
+  <gazebo reference="trunk_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_hip_yaw_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_hip_roll_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_thigh_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_shank_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_ankle_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_foot_link">
+    <material>Gazebo/White</material>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <fdir1>1 1 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.00</minDepth>
+  </gazebo>
+  <gazebo reference="left_shoulder_pitch_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_upper_arm_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="left_lower_arm_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_hip_yaw_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_hip_roll_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_thigh_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_shank_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_ankle_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_foot_link">
+    <material>Gazebo/White</material>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <fdir1>1 1 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.00</minDepth>
+  </gazebo>
+  <gazebo reference="right_shoulder_pitch_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_upper_arm_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="right_lower_arm_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="neck_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="head_Link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <!-- Gazebo configuration -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/zjlrobotone</robotNamespace>
+    </plugin>
+  </gazebo>
+  <gazebo reference="trunk_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>trunk_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>trunk_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+ <gazebo 
+      reference="right_shoulder_pitch">
+     <provideFeedback>true</provideFeedback>
+ </gazebo>
+  <gazebo>
+      <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+          <updateRate>500.0</updateRate>
+          <topicName>right_shoulder_pitch</topicName>
+          <jointName>right_shoulder_pitch</jointName>
+      </plugin>
+  </gazebo>
+</robot>

@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find zjlrobotone_gazebo)/worlds/nimbro_op.world"/>
+		<arg name="paused" value="true" />
+	</include>
+        <include file="$(find zjlrobotone)/launch/gazebo.launch" />
+        <include file="$(find zjlrobotone_gazebo)/launch/zjlrobotone_controller.launch" />
+</launch>
