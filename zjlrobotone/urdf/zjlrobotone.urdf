@@ -5,10 +5,11 @@
 <robot
   name="zjlrobotone">
   <!-- Joints and links -->
+  <!--link name="base"/-->
   <link name="base"/>
   <joint name="trunk_link-base_fixed_joint" type="fixed">
     <!--origin rpy="0 0 0" xyz="0 0 0.8189"/-->
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.02"/>
     <parent link="base"/>
     <child link="trunk_link"/>
   </joint>
@@ -103,7 +104,7 @@
     <child
       link="neck_Link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3"
       upper="3"
@@ -277,7 +278,7 @@
     <child
       link="right_upper_arm_Link" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="-3"
       upper="3"
@@ -393,15 +394,12 @@
     <child
       link="left_shoulder_pitch_Link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       lower="-3"
       upper="3"
       effort="100"
       velocity="100" />
-    <sensor name="force_torque" type="force_torque">
-      <update_rate>30</update_rate>
-    </sensor>
   </joint>
   <link
     name="left_upper_arm_Link">
@@ -454,7 +452,7 @@
     <child
       link="left_upper_arm_Link" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="-3"
       upper="3"
@@ -512,7 +510,7 @@
     <child
       link="left_lower_arm_Link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       lower="-3"
       upper="3"
@@ -570,7 +568,7 @@
     <child
       link="right_hip_yaw_Link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3"
       upper="3"
@@ -628,7 +626,7 @@
     <child
       link="right_hip_roll_Link" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="-3"
       upper="3"
@@ -680,7 +678,7 @@
     type="revolute">
     <origin
       xyz="0 0 0"
-      rpy="0 0 0" />
+      rpy="0 -0.107303 0" />
     <parent
       link="right_hip_roll_Link" />
     <child
@@ -738,7 +736,7 @@
     type="revolute">
     <origin
       xyz="0 -0.0119999999999984 -0.3"
-      rpy="0 0 0" />
+      rpy="0 0.257133 0" />
     <parent
       link="right_thigh_Link" />
     <child
@@ -802,7 +800,7 @@
     <child
       link="right_ankle_Link" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="-3"
       upper="3"
@@ -854,7 +852,7 @@
           type="revolute">
     <origin
             xyz="0 0 0"
-            rpy="0 0 0" />
+            rpy="0 -0.149307 0" />
     <parent
             link="right_ankle_Link" />
     <child
@@ -867,6 +865,59 @@
             effort="100"
             velocity="100" />
   </joint>
+
+
+  <link name="right_foot_earth_link">
+    <inertial>
+      <origin
+              xyz="0.022199 0.0074743 -0.038818"
+              rpy="0 0 0" />
+      <mass
+              value="0.1" />
+      <inertia
+              ixx="0.0000001"
+              ixy="-1.5272E-12"
+              ixz="-3.0165E-06"
+              iyy="0.000000001"
+              iyz="4.3083E-16"
+              izz="0.000000001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.3 0.2 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 -0.02 -0.045"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin
+              xyz="0.1 -0.02 -0.045"
+              rpy="0 0 0" />
+      <geometry>
+        <box size="0.3 0.2 0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="right_foot_earth"
+          type="revolute">
+    <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+    <parent
+            link="right_foot_Link" />
+    <child
+            link="right_foot_earth_link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-0"
+            upper="0"
+            effort="100"
+            velocity="100" />
+  </joint>
+
+
   <link
           name="left_hip_yaw_Link">
     <inertial>
@@ -918,7 +969,7 @@
     <child
             link="left_hip_yaw_Link" />
     <axis
-            xyz="0 0 -1" />
+            xyz="0 0 1" />
     <limit
             lower="-3"
             upper="3"
@@ -976,7 +1027,7 @@
     <child
             link="left_hip_roll_Link" />
     <axis
-            xyz="-1 0 0" />
+            xyz="1 0 0" />
     <limit
             lower="-3"
             upper="3"
@@ -1028,7 +1079,7 @@
           type="revolute">
     <origin
             xyz="0 0 0"
-            rpy="0 0 0" />
+            rpy="0 -0.107303 0" />
     <parent
             link="left_hip_roll_Link" />
     <child
@@ -1086,7 +1137,7 @@
           type="revolute">
     <origin
             xyz="0 0.013000000000026 -0.29999999999994"
-            rpy="0 0 0" />
+            rpy="0 0.257133 0" />
     <parent
             link="left_thigh_Link" />
     <child
@@ -1150,7 +1201,7 @@
     <child
             link="left_ankle_Link" />
     <axis
-            xyz="-1 0 0" />
+            xyz="1 0 0" />
     <limit
             lower="-3"
             upper="3"
@@ -1202,7 +1253,7 @@
           type="revolute">
     <origin
             xyz="0 0 0"
-            rpy="0 0 0" />
+            rpy="0 -0.149307 0" />
     <parent
             link="left_ankle_Link" />
     <child
@@ -1215,47 +1266,63 @@
             effort="100"
             velocity="100" />
   </joint>
-  <link name="gsensor"/>
-  <joint name="gsensor_JOINT" type="fixed">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="trunk_link"/>
-    <child link="gsensor"/>
+  <link name="left_foot_earth_link">
+    <inertial>
+      <origin
+              xyz="0.022199 0.0074743 -0.038818"
+              rpy="0 0 0" />
+      <mass
+              value="0.1" />
+      <inertia
+              ixx="0.00000001"
+              ixy="-1.5272E-12"
+              ixz="-3.0165E-06"
+              iyy="0.00000001"
+              iyz="4.3083E-16"
+              izz="0.00000001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.3 0.2 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0.02 -0.045"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin
+              xyz="0.1 0.02 -0.045"
+              rpy="0 0 0" />
+      <geometry>
+        <box size="0.3 0.2 0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+          name="left_foot_earth"
+          type="revolute">
+    <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+    <parent
+            link="left_foot_Link" />
+    <child
+            link="left_foot_earth_link" />
+    <axis
+            xyz="0 1 0" />
+    <limit
+            lower="-0"
+            upper="0"
+            effort="100"
+            velocity="100" />
   </joint>
-  <sensor name="gsensor_SENSOR" update_rate="20">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="trunk_link"/>
-  </sensor>
-  <link name="gyrometer"/>
-  <joint name="gyrometer_JOINT" type="fixed">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="trunk_link"/>
-    <child link="gyrometer"/>
-  </joint>
-  <sensor name="gyrometer_SENSOR" update_rate="20">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="trunk_link"/>
-  </sensor>
-  <link name="rfsensor"/>
-  <joint name="rfsensor_JOINT" type="fixed">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="right_foot_Link"/>
-    <child link="rfsensor"/>
-  </joint>
-  <sensor name="rfsensor_SENSOR" update_rate="20">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="right_foot_Link"/>
-  </sensor>
-  <link name="lfsensor"/>
-  <joint name="lfsensor_JOINT" type="fixed">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="left_foot_Link"/>
-    <child link="lfsensor"/>
-  </joint>
-  <sensor name="lfsensor_SENSOR" update_rate="20">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-    <parent link="left_foot_Link"/>
-  </sensor>
-   <!-- Transmissions -->
+
+
+
+
+
+
+
+<!-- Transmissions -->
   <transmission name="neck_yaw_transmission">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="neck_yaw">
@@ -1441,7 +1508,6 @@
 
 
 
-
  <!-- Gazebo links -->
   <gazebo reference="trunk_link">
     <material>Gazebo/White</material>
@@ -1520,6 +1586,31 @@
   <gazebo reference="head_Link">
     <material>Gazebo/Black</material>
   </gazebo>
+  <gazebo reference="left_foot_earth_link">
+    <material>Gazebo/Black</material>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <fdir1>1 1 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.00</minDepth>
+  </gazebo>
+  <gazebo reference="right_foot_earth_link">
+    <material>Gazebo/Black</material>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <fdir1>1 1 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.00</minDepth>
+  </gazebo>
+
+
+
+
+
   <!-- Gazebo configuration -->
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
@@ -1546,14 +1637,25 @@
     </sensor>
   </gazebo>
  <gazebo 
-      reference="right_shoulder_pitch">
+      reference="right_foot_earth">
      <provideFeedback>true</provideFeedback>
  </gazebo>
   <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
           <updateRate>500.0</updateRate>
-          <topicName>right_shoulder_pitch</topicName>
-          <jointName>right_shoulder_pitch</jointName>
+          <topicName>ft_right_foot_earth</topicName>
+          <jointName>right_foot_earth</jointName>
       </plugin>
+  </gazebo>
+  <gazebo
+          reference="left_foot_earth">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <updateRate>500.0</updateRate>
+      <topicName>ft_left_foot_earth</topicName>
+      <jointName>left_foot_earth</jointName>
+    </plugin>
   </gazebo>
 </robot>
